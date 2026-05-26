@@ -5,39 +5,281 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>NoosPsyche | Engineering Intelligent Systems</title>
   <style>
-    html, body {
-      margin: 0;
-      min-height: 100%;
+    :root {
+      color-scheme: dark;
+      color: #eef2ff;
       background: #030812;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
-      background-image: url("assets/coming-soon-screen.png");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: linear-gradient(180deg, rgba(3, 8, 18, 0.95) 0%, rgba(10, 16, 35, 1) 100%);
+      color: #eef2ff;
+      line-height: 1.6;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-banner {
+      background: #121b2e;
+      color: #cbd5ff;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 0.92rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 11;
+      backdrop-filter: blur(18px);
+      background: rgba(3, 8, 18, 0.92);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .navbar {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(238, 242, 255, 0.82);
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: #7c3aed;
+    }
+
+    .hero {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 96px 24px 64px;
+    }
+
+    .hero-content {
+      display: grid;
+      gap: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      margin: 0;
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 780px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.05rem;
+      color: rgba(238, 242, 255, 0.82);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .button.primary {
+      background: #7c3aed;
+      color: white;
+    }
+
+    .button.secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: #eef2ff;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+
+    .section-title {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #8b94a6;
+      margin-bottom: 16px;
+    }
+
+    .feature-grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 28px;
+      min-height: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: rgba(238, 242, 255, 0.74);
+      flex-grow: 1;
+    }
+
+    .footer {
+      padding: 32px 24px;
+      text-align: center;
+      color: #8b94a6;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        padding: 16px;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero h1 {
+        font-size: 2.6rem;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="sr-only">
-    <h1>NoosPsyche</h1>
-    <p>Engineering Intelligent Systems.</p>
-    <p>Our website is under construction.</p>
+  <div class="top-banner">
+    <p>Descubre nuestras soluciones de software para operaciones empresariales: productos, servicio y resultados eficientes.</p>
+  </div>
+  <header>
+    <nav class="navbar" aria-label="Menú principal">
+      <a class="brand" href="#home">NoosPsyche</a>
+      <div class="nav-links">
+        <a href="#products">Productos</a>
+        <a href="#about">Quiénes somos</a>
+        <a href="#solutions">Soluciones</a>
+        <a href="#contact">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="section-title">Software para la operación empresarial</p>
+        <h1>Herramientas inteligentes para optimizar procesos, equipos y resultados.</h1>
+        <p>En NoosPsyche diseñamos soluciones de software que simplifican la gestión operativa de las empresas, conectando datos, automatizando tareas y mejorando la toma de decisiones.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#products">Ver productos</a>
+          <a class="button secondary" href="#about">Conócenos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <p class="section-title">Productos</p>
+      <h2>Plataformas creadas para operar con inteligencia</h2>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Gestión Operativa</h3>
+          <p>Controla flujos de trabajo, tareas y servicios en una sola vista para reducir tiempos y coordinar equipos con mayor precisión.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Analítica & Control</h3>
+          <p>Obtén indicadores clave en tiempo real, predicciones y alertas que ayudan a tomar decisiones ágiles y basadas en datos.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Integración & Automatización</h3>
+          <p>Conecta sistemas, sincroniza información y automatiza procesos recurrentes para eliminar tareas manuales y errores.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <p class="section-title">Quiénes somos</p>
+      <h2>Equipo experto en transformar operaciones en resultados</h2>
+      <p>Somos una compañía de tecnología que crea herramientas de software a medida para empresas que buscan operar con más eficiencia, visibilidad y velocidad. Nuestra experiencia combina ingeniería, experiencia de usuario y conocimiento de negocio.</p>
+    </section>
+
+    <section class="section" id="solutions">
+      <p class="section-title">Soluciones</p>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Control de inventarios</h3>
+          <p>Monitorea existencias, movimientos y renovaciones con precisión para evitar rupturas y exceso de stock.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Gestión de equipos</h3>
+          <p>Organiza recursos, turnos y proyectos con una plataforma que facilita la colaboración y la responsabilidad operativa.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Operación basada en datos</h3>
+          <p>Transforma datos operativos en decisiones prácticas con paneles claros y recomendaciones accionables.</p>
+        </article>
+      </div>
+    </section>
   </main>
+
+  <footer class="footer" id="contact">
+    <p>¿Quieres una demo o más información? Contáctanos para desarrollar la solución que tu operación necesita.</p>
+  </footer>
 </body>
 </html>
